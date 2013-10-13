@@ -45,8 +45,8 @@
 			    <td>${x.nfee?if_exists}</td>
 			    <td>${x.depositfee?if_exists}</td>
 			    <td>${x.fee?if_exists}</td>
-			    <td>${x.enumber?if_exists}</td>
-			    <td>${x.wnumber?if_exists}</td>
+			    <td>${x.evalue?if_exists}</td>
+			    <td>${x.wvalue?if_exists}</td>
 			    
 			    <td>${x.remark?if_exists}</td>
 			</tr>

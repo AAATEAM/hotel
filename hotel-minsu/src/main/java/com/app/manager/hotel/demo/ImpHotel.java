@@ -29,8 +29,10 @@ public class ImpHotel extends ParentDemo implements InfDemo{
 			//if(true){
 		log.debug("初始化数据");
 		User admin = create_user("admin", "系统管理admin", "1324567890","admin@qq.com", "");
-		User user_linzhi = create_user("linzhi", "林芝", "1334567890","linzhi@qq.com", "");
-
+		User user_1 = create_user("zhongda", "中山大学项目组", "18688385892","", "");
+		User user_2 = create_user("liwei", "李伟", "13538740054","", "");
+		
+		
 		Organize o1 = create_organize("部门架构", "department", null);
 		Organize o11 = create_sub_organize(o1,"旅馆", "hotel",null );
 		Organize o_hotel_1 = create_sub_organize(o11,"民宿旅馆", "hotel-xingsu", null);
@@ -72,7 +74,7 @@ public class ImpHotel extends ParentDemo implements InfDemo{
 		Systempara sp15 = create_sub_systempara(sp1, "price", "月租金");
 		Systempara sp18 = create_sub_systempara(sp1, "wprice", "水价");
 		Systempara sp19 = create_sub_systempara(sp1, "eprice", "电价");
-		
+		Systempara sp20 = create_sub_systempara(sp1, "nprice", "网费");
 		Systempara sp2 = create_systempara("hotel_fee_reason", "收费注释");
 		Systempara sp21 = create_sub_systempara(sp2, "checkin", "第一次开房费用");
 		Systempara sp22 = create_sub_systempara(sp2, "monthfee", "月结算费用");

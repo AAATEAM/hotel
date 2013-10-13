@@ -5,6 +5,7 @@
 			<th>电费</th>
 			<th>水费</th>
 			<th>网费</th>
+			<th>押金</th>
 			<th>电度数(读数)</th>
 			<th>水吨数(读数)</th>
 			
@@ -19,6 +20,7 @@
 		    <td>${x.efee?if_exists}</td>
 		    <td>${x.wfee?if_exists}</td>
 		    <td>${x.nfee?if_exists}</td>
+		    <td>${x.depositfee?if_exists}</td>
 		    <td>${x.evalue?if_exists}(${x.enumber?if_exists})</td>
 		    <td>${x.wvalue?if_exists}(${x.wnumber?if_exists})</td>
 		    <td>${x.fee?if_exists}</td>

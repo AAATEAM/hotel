@@ -9,11 +9,12 @@
 		     <b>${rhs["organize"].name}</b>
 			<br><@inputextp "enumber", rhs["organize"].id ,"Organize" />
 			<br><@inputextp "wnumber", rhs["organize"].id,"Organize" />
-			<br><@inputextp "begindate", rhs["organize"].id,"Organize" />
-			<br><@inputextp "enddate", rhs["organize"].id,"Organize" />
+			<br><@inputextp "begindate", rhs["organize"].id,"Organize","1" />
+			<br><@inputextp "enddate", rhs["organize"].id,"Organize" ,"1"/>
 			<br><@inputextp "price", rhs["organize"].id,"Organize" />
 			<br><@inputextp "eprice", rhs["organize"].id,"Organize" />
 			<br><@inputextp "wprice", rhs["organize"].id ,"Organize"/>
+			<br><@inputextp "nprice", rhs["organize"].id ,"Organize"/>
 			
 		</td>
 		<td valign=top  width=20%>
@@ -47,8 +48,10 @@
 		      <input id=organize_id name=id type=hidden value=""/>
 		            <br>   <input id=role_id  type=hidden   value=""/>
 		  
-		   	<button class="btn  btn-mini" onclick="javascript:ajax_add_new_user();">新增</button>
+		   	<button class="btn  btn-mini" onclick="javascript:ajax_add_new_user()"">新增</button>
+		   	<#--
 		   	<a class="btn  btn-mini" onclick="window.location.reload();">关闭</a>
+		   	-->
 	   </div>
 
 

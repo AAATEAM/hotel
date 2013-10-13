@@ -8,8 +8,8 @@
   </#list> 
 <script type="text/javascript" src="<@context_module/>hotel.js"></script>
 <script type="text/javascript" >
-    var ecurrentnumber=0;
-    var wcurrentnumber=0;
+    var ecurrentnumber=<@vextp "enumber", rhs["organize"].id />;
+    var wcurrentnumber=<@vextp "wnumber", rhs["organize"].id />;
 	function sum(){
 		document.getElementById('sum_fee').innerHTML=parseFloat(
 												parseFloat(document.getElementById('efee').innerHTML)
@@ -43,8 +43,8 @@
 					<br>电费 <@vextp "eprice", rhs["organize"].id />元/度:<input value="<@vextp "enumber", rhs["organize"].id />"  onchange="javascript:sumefee(this.value);ecurrentnumber=this.value" style='WIDTH: 50px'/>-<@vextp "enumber", rhs["organize"].id />上期=<span id=evalue>0</span>度
 			        <br>水费 <@vextp "wprice", rhs["organize"].id />元/吨:<input value="<@vextp "wnumber", rhs["organize"].id />"  onchange="javascript:sumwfee(this.value);wcurrentnumber=this.value" style='WIDTH: 50px' />-<@vextp "wnumber", rhs["organize"].id />上期=<span id=wvalue>0</span>吨 
 			        
-			        <br>房费 <@vextp "price", rhs["organize"].id />元/月:<input value="0"  onchange="javascript:document.getElementById('hfee').innerHTML=this.value;sum();"  style="WIDTH: 30px" />
-			     	   网费 30元/月:<input value="0" onchange="javascript:document.getElementById('nfee').innerHTML=this.value;sum();" style='WIDTH: 30px' />
+			        <br>房费 <@vextp "price", rhs["organize"].id />元/月:<input value="<@vextp "price", rhs["organize"].id />"  onchange="javascript:document.getElementById('hfee').innerHTML=this.value;sum();"  style="WIDTH: 30px" />
+			     	   网费 <@vextp "nprice", rhs["organize"].id />元/月:<input value=" <@vextp "nprice", rhs["organize"].id />" onchange="javascript:document.getElementById('nfee').innerHTML=this.value;sum();" style='WIDTH: 30px' />
 			        	押金 :<input value="0" onchange="javascript:document.getElementById('depositfee').innerHTML=this.value;sum();"  style='WIDTH: 30px' />
 			        <br>备注 :<input id=remark value=""  style='WIDTH: 250px' />
 			   <br>
@@ -67,10 +67,10 @@
                                                            
 			        	<table   class="table  table-condensed">
 					 	<tr><td>电费</td><td>水费</td><td>房费</td><td>网费</td><td>押金</td><td>总额</td></tr>
-					 	<tr><td id=efee>0</td><td id=wfee>0</td><td id=hfee>0</td><td id=nfee>0</td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
+					 	<tr><td id=efee>0</td><td id=wfee>0</td><td id=hfee><@vextp "price", rhs["organize"].id /></td><td id=nfee><@vextp "nprice", rhs["organize"].id /></td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
 				    </table>
 			
-		        <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:action_fee('hotel_hotel_fee_create.do',
+		        <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:sum();action_fee('hotel_hotel_fee_create.do',
 		                                                                'fee='+document.getElementById('sum_fee').innerHTML
 		                                                                 + '&efee='+document.getElementById('efee').innerHTML
 		                                                                 + '&wfee='+document.getElementById('wfee').innerHTML
@@ -87,7 +87,7 @@
 		                                                                +'&organizeId=${rhs["organize"].id?if_exists}'
 		                                                                +'&remark='+escape(encodeURIComponent(document.getElementById('remark').value))); this.disabled=true;document.getElementById('bt_refresh').disabled=false;">确定 </button>
 	        <button id="bt_refresh" class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:window.location.reload();" disabled=true;>续缴刷新 </button>
-	        <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:alert(123)">打印清单 </button>
+	        <button class="btn  btn-mini" type=button   onclick="javascript:alert(123)">打印清单 </button>
 
 	                                                   
 		        </td>
@@ -114,3 +114,4 @@
         
         </div>
         <span id="div_action_result" style="display:none"> ${rhs["info"]?if_exists}</span>
+        <br><br><br><br>

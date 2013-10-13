@@ -13,7 +13,7 @@
 			    &nbsp;&nbsp;&nbsp;
 			    <a  title="日常收费 " href="hotel_hotel_fee.do?organizeId=${organize.id}"  onclick="return hs.htmlExpand(this, { objectType: 'iframe' })" target=_blank>费用</a>
 		    	&nbsp;&nbsp;&nbsp; 备注<input  value="${organize.organizedescription?if_exists}" 
-		        style="WIDTH: 320px"  onchange="javascript:action_organize('update.do','column=organizedescription&organizeId=${organize.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /> 
+		        style="WIDTH: 320px"  onchange="javascript:action_organize('update.do','column=organizedescription&id=${organize.id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))" /> 
 		       </#if>
 
 		    </td>

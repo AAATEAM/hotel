@@ -31,6 +31,7 @@ $(function(){
 	     	    document.getElementById('div_action_result').innerHTML=html;
 	     
 	     	    tip_info();
+	     	    window.location.reload();
 	       }	
 	    });  
 	}
