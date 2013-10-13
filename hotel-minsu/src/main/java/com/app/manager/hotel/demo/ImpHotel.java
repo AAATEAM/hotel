@@ -1,4 +1,4 @@
-package com.app.manager.demo;
+package com.app.manager.hotel.demo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,19 +40,26 @@ public class ImpHotel extends ParentDemo implements InfDemo{
 		Organize o_hotel_floor3= create_sub_organize(o_hotel_1,"3楼", "floor3", null);
 		Organize o_hotel_floor4= create_sub_organize(o_hotel_1,"4楼", "floor4", null);
 		
-		Organize o_hotel_room101= create_sub_organize(o_hotel_floor1,"房间101", "101", organizegroup_room);
-		Organize o_hotel_room201= create_sub_organize(o_hotel_floor2,"房间201", "201", organizegroup_room);
-		Organize o_hotel_room202= create_sub_organize(o_hotel_floor2,"房间202", "202", organizegroup_room);
-		Organize o_hotel_room203= create_sub_organize(o_hotel_floor2,"房间203", "203", organizegroup_room);
+		Organize o_hotel_room101= create_sub_organize(o_hotel_floor1,"101", "101", organizegroup_room);
+		Organize o_hotel_room201= create_sub_organize(o_hotel_floor2,"201", "201", organizegroup_room);
+		Organize o_hotel_room202= create_sub_organize(o_hotel_floor2,"202", "202", organizegroup_room);
+		Organize o_hotel_room203= create_sub_organize(o_hotel_floor2,"203", "203", organizegroup_room);
+		Organize o_hotel_room204= create_sub_organize(o_hotel_floor2,"204", "204", organizegroup_room);
+		Organize o_hotel_room205= create_sub_organize(o_hotel_floor2,"205", "205", organizegroup_room);
 		
 		
-		Organize o_hotel_room301= create_sub_organize(o_hotel_floor3,"房间301", "301", organizegroup_room);
-		Organize o_hotel_room302= create_sub_organize(o_hotel_floor3,"房间302", "302", organizegroup_room);
-		Organize o_hotel_room303= create_sub_organize(o_hotel_floor3,"房间303", "303", organizegroup_room);
+		Organize o_hotel_room301= create_sub_organize(o_hotel_floor3,"301", "301", organizegroup_room);
+		Organize o_hotel_room302= create_sub_organize(o_hotel_floor3,"302", "302", organizegroup_room);
+		Organize o_hotel_room303= create_sub_organize(o_hotel_floor3,"303", "303", organizegroup_room);
+		Organize o_hotel_room304= create_sub_organize(o_hotel_floor3,"304", "304", organizegroup_room);
+		Organize o_hotel_room305= create_sub_organize(o_hotel_floor3,"305", "305", organizegroup_room);
+
 		
-		Organize o_hotel_room401= create_sub_organize(o_hotel_floor4,"房间401", "401", organizegroup_room);
-		Organize o_hotel_room402= create_sub_organize(o_hotel_floor4,"房间402", "402", organizegroup_room);
-		Organize o_hotel_room403= create_sub_organize(o_hotel_floor4,"房间403", "403", organizegroup_room);
+		Organize o_hotel_room401= create_sub_organize(o_hotel_floor4,"401", "401", organizegroup_room);
+		Organize o_hotel_room402= create_sub_organize(o_hotel_floor4,"402", "402", organizegroup_room);
+		Organize o_hotel_room403= create_sub_organize(o_hotel_floor4,"403", "403", organizegroup_room);
+		Organize o_hotel_room404= create_sub_organize(o_hotel_floor4,"404", "404", organizegroup_room);
+		Organize o_hotel_room405= create_sub_organize(o_hotel_floor4,"405", "405", organizegroup_room);
 				
 		
 		Systempara sp1 = create_systempara("hotel_organize_extp", "房间扩展属性");
@@ -82,12 +89,18 @@ public class ImpHotel extends ParentDemo implements InfDemo{
 				+ "-"+o_hotel_room201.getId().toString()
 				+ "-"+o_hotel_room202.getId().toString()
 				+ "-"+o_hotel_room203.getId().toString()
+				+ "-"+o_hotel_room204.getId().toString()
+				+ "-"+o_hotel_room205.getId().toString()				
 				+ "-"+o_hotel_room301.getId().toString()
 				+ "-"+o_hotel_room302.getId().toString()
 				+ "-"+o_hotel_room303.getId().toString()
+				+ "-"+o_hotel_room304.getId().toString()
+				+ "-"+o_hotel_room305.getId().toString()
 				+ "-"+o_hotel_room401.getId().toString()
 				+ "-"+o_hotel_room402.getId().toString()
 				+ "-"+o_hotel_room403.getId().toString()
+				+ "-"+o_hotel_room404.getId().toString()
+				+ "-"+o_hotel_room405.getId().toString()
 
 				);
 		

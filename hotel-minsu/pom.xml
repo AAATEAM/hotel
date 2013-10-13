@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>ea</groupId>
+    <groupId>../../ea</groupId>
     <artifactId>ea-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <relativePath>ea-parent</relativePath>	
   </parent>
 	<groupId>ea</groupId>
-	<artifactId>ea-template</artifactId>
+	<artifactId>hotel</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<dependencies>
@@ -24,6 +24,5 @@
 			<version>${project.version}</version>
 		</dependency>
 
-	
 	</dependencies>
 	</project>
