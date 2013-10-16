@@ -60,7 +60,7 @@
                                                                      房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp;  
                      &nbsp;  开始  <@vextp "begindate", rhs["organize"].id />
 			         &nbsp;  结束 <@vextp "enddate", rhs["organize"].id />
-                                                                     
+           
                     <br>姓名：
 						${usernameList?if_exists}                                                
                     <#--

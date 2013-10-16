@@ -6,7 +6,21 @@
 <#macro digui_orgnaize treeNodes  flag >
 	<#list treeNodes?sort_by("name") as organize>
 		<tr>
-		    <td>${flag}<b>${organize.name}</b></td>
+		    <td>${flag}<b>${organize.name}</b>
+		        <#if organize.getRoles()?size gt 0 > 
+		          &nbsp;&nbsp;   <@vextp "begindate", organize.id />
+			        ~ <@vextp "enddate", organize.id />
+		        </#if>
+		           <#if rhs["extvmap"]['enddate_'+organize.id]?exists > 
+		      		   
+		      		   <#assign day_number=rhs["extvmap"]['begindate_'+organize.id].value?substring(8,10)?number-javacall["com.common.time.TimeUtil"].getCurrentDay()>         
+                                                             天数${day_number}   
+                        <#if day_number  gt 0 > 待收    </#if>                                      
+		            </#if>
+		            <#--
+		        
+		        -->
+		    </td>
 		    <td>
 		       <#if organize.getRoles()?size gt 0 > 
 			    <a title="开房登记" href="hotel_hotel_contract.do?organizeId=${organize.id}" onclick="return hs.htmlExpand(this, { objectType: 'iframe' })" target=_blank>开房登记</a>
