@@ -5,6 +5,7 @@ $(function(){
 		modal: true,
 		width: 500
 	});
+	
 });
     
 	function action_fee_dialog(url,para){
@@ -64,9 +65,7 @@ $(function(){
 	
     
     function action_fee(url,para){ 
-  
-	        	
-        $.ajax({
+       $.ajax({
 	         type:"POST",
 	         url: url,
 	         data:para,
@@ -77,4 +76,17 @@ $(function(){
 	         }
 	    });  
     }    
-	
+	  //用弹出窗口，牵涉到麻烦的中文字符传送
+    function action_print(url,para){ 
+      
+      $.ajax({
+	         type:"POST",
+	         url: url,
+	         data:para,
+	         cache: false,
+	         success: function(html){
+	            document.getElementById('print_area').innerHTML=html;
+	       	  	     	
+	         }
+	    });  
+    }    
