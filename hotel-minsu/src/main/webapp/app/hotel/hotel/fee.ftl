@@ -56,11 +56,11 @@
 	             </td>
 		        <td valign=top width=50%>
                                                                      房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp; 
+                     &nbsp;  开始  <@vextp "begindate", rhs["organize"].id />
+			         &nbsp;  结束 <@vextp "enddate", rhs["organize"].id />
                     <br>姓名：
 						${usernameList?if_exists}                                                
-                    <#--
-                                                                       今日：${javacall["com.common.time.TimeUtil"].getTimeStr("yyyy年MM月dd日")} 		
-                    -->
+                  
 			        	<table   class="table  table-condensed">
 					 	<tr><td>电费</td><td>水费</td><td>房费</td><td>网费</td><td>押金</td><td>总额</td></tr>
 					 	<tr><td id=efee>0</td><td id=wfee>0</td><td id=hfee><@vextp "price", rhs["organize"].id /></td><td id=nfee><@vextp "nprice", rhs["organize"].id /></td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
