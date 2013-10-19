@@ -8,6 +8,7 @@
 		<tr>
 		    <td>${flag}<b>${organize.name}</b>
 		        <#if organize.getRoles()?size gt 0 > 
+
 		          &nbsp;&nbsp; 
 		          <#--
                    <@vextp "begindate", organize.id />
@@ -19,18 +20,8 @@
 			              <span style="color:red" >  </#if>  
 			              		  距上次缴费： ${day_number}天
 			              </span>
-			                 
-			                         
-			       
-			      
 		        </#if>
-		            <#-- 提醒：
-		            <#if rhs["extvmap"]['enddate_'+organize.id]?exists > 
-		      		    <#assign day_number=rhs["extvmap"]["begindate_"+organize.id].value?substring(8,10)?number-javacall["com.common.time.TimeUtil"].getCurrentDay()?number />         
-                        <#if day_number  gt 0 >  ${day_number}天后收租    </#if>      
-                        <#if day_number  < 0 >  ${day_number}天超过    </#if>                                      
-		            </#if>
-		             -->
+		          
 		    </td>
 		    <td>
 		       <#if organize.getRoles()?size gt 0 > 
