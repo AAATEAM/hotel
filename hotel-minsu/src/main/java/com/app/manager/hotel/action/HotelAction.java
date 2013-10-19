@@ -130,7 +130,7 @@ public class HotelAction extends BaseEaAction {
 			fee.setDepositfee(getnumberpara("depositfee"));
 			fee.setEnumber(getnumberpara("enumber"));
 			fee.setWnumber(getnumberpara("wnumber"));
-			
+			fee.setContractpaydate(getpara("contractpaydate"));			
 			fee.setEvalue(getnumberpara("evalue"));
 			fee.setWvalue(getnumberpara("wvalue"));
 			

@@ -1,6 +1,7 @@
   	<table   class="table  table-condensed">
 		<tr>
-			<th>日期</th>
+		 
+			<th>合同日期</th>
 			<th>房费</th>
 			<th>电费</th>
 			<th>水费</th>
@@ -14,8 +15,11 @@
 		    <th>操作</th>
 		</tr>
 		<#list rhs["feelist"] as x>   
-		<tr title="${x.operationname?if_exists}录入">
-		    <td>${x.feedate?if_exists}</td>
+		<tr title="${x.operationname?if_exists}录入${x.feedate?if_exists}">
+		   
+		     <td>${x.contractpaydate?if_exists}</td>
+		    
+		   
 		    <td>${x.hfee?if_exists}</td>
 		    <td>${x.efee?if_exists}</td>
 		    <td>${x.wfee?if_exists}</td>

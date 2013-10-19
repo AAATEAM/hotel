@@ -27,7 +27,6 @@
 		sum();
 	}
 	
-	
 	function sumwfee(number){
 	   
 	    document.getElementById('wvalue').innerHTML=number-<@vextp "wnumber", rhs["organize"].id />;
@@ -43,31 +42,25 @@
 			    <td valign=top width=50%>             
 					<br>电费 <@vextp "eprice", rhs["organize"].id />元/度:<input id=input_enumber value="<@vextp "enumber", rhs["organize"].id />"  onchange="javascript:sumefee(this.value);ecurrentnumber=this.value" style='WIDTH: 50px'/>-<@vextp "enumber", rhs["organize"].id />上期=<span id=evalue>0</span>度
 			        <br>水费 <@vextp "wprice", rhs["organize"].id />元/吨:<input id=input_wnumber value="<@vextp "wnumber", rhs["organize"].id />"  onchange="javascript:sumwfee(this.value);wcurrentnumber=this.value" style='WIDTH: 50px' />-<@vextp "wnumber", rhs["organize"].id />上期=<span id=wvalue>0</span>吨 
-			        
 			        <br>房费 <@vextp "price", rhs["organize"].id />元/月:<input value="<@vextp "price", rhs["organize"].id />"  onchange="javascript:document.getElementById('hfee').innerHTML=this.value;sum();"  style="WIDTH: 30px" />
+			     	<br>应缴费日期:<input id=contractpaydate value="" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"   style='WIDTH: 80px' />
+			     	<br>
 			     	   网费 <@vextp "nprice", rhs["organize"].id />元/月:<input value=" <@vextp "nprice", rhs["organize"].id />" onchange="javascript:document.getElementById('nfee').innerHTML=this.value;sum();" style='WIDTH: 30px' />
 			        	押金 :<input value="0" onchange="javascript:document.getElementById('depositfee').innerHTML=this.value;sum();"  style='WIDTH: 30px' />
 			        <br>备注 :<input id=remark value=""  style='WIDTH: 250px' />
 			   <br>
 			<#list  rhs["system_para_map"]["hotel_fee_reason"]?keys as key>
-                <input type="checkbox" onclick="javascript:document.getElementById('remark').value=document.getElementById('remark').value+','+this.value" name=businesstype value="${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}" >${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}</input>
+                   <input type="checkbox" onclick="javascript:document.getElementById('remark').value=document.getElementById('remark').value+','+this.value" name=businesstype value="${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}" >${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}</input>
 			</#list> 
-			        
-			        
 			        <br><input id=usernameList value="${rhs["organize"].name?if_exists}-${usernameList?if_exists}" type=hidden />
 	             </td>
 		        <td valign=top width=50%>
-                                                                     房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp;  
-                     &nbsp;  开始  <@vextp "begindate", rhs["organize"].id />
-			         &nbsp;  结束 <@vextp "enddate", rhs["organize"].id />
-                                                                     
+                                                                     房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp; 
                     <br>姓名：
 						${usernameList?if_exists}                                                
                     <#--
                                                                        今日：${javacall["com.common.time.TimeUtil"].getTimeStr("yyyy年MM月dd日")} 		
                     -->
-                   
-                                                           
 			        	<table   class="table  table-condensed">
 					 	<tr><td>电费</td><td>水费</td><td>房费</td><td>网费</td><td>押金</td><td>总额</td></tr>
 					 	<tr><td id=efee>0</td><td id=wfee>0</td><td id=hfee><@vextp "price", rhs["organize"].id /></td><td id=nfee><@vextp "nprice", rhs["organize"].id /></td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
@@ -83,8 +76,7 @@
 		                                                                 + '&wnumber='+wcurrentnumber
 		                                                                 + '&evalue='+document.getElementById('evalue').innerHTML
 		                                                                 + '&wvalue='+document.getElementById('wvalue').innerHTML
-		                                                                     
-		                                                                     
+		                                                                 + '&contractpaydate='+document.getElementById('contractpaydate').value
 		                                                                  + '&depositfee='+document.getElementById('depositfee').innerHTML
 		                                                               + '&usernameList='+document.getElementById('usernameList').value
 		                                                                +'&organizeId=${rhs["organize"].id?if_exists}'
@@ -97,7 +89,6 @@
 				<br>姓名：
 			    <br>房间号：${rhs["organize"].name?if_exists}	
 				<br>合同有效时间：
-				
 			  	<br>
 				------------------------------------
 				<div id=div_print_e_fee> </div>
@@ -106,9 +97,7 @@
 				<div id=div_print_n_fee><b>宽带:30元</b> </div>
 			 	<div id=div_print_sp_fee> </div>
 				------------------------------------
-						
 	</div>		   			
-	                                                   
 		        </td>
 	        </tr>
 	        <tr>
@@ -116,15 +105,6 @@
 	        <hr> 历史缴费清单
 				      <div id=div_fee_table>
 				      	<#include "include_list_fee.ftl"> 
-			             <#--只列出合同期之后的费用                                                       
-			            <table>
-						 	<tr><td>日期</td><td>电费</td><td>水费</td><td>房费</td><td>网费</td><td>押金</td><td>金额</td><td>操作</td></tr>
-						 	<tr><td>2013-09-22</td><td>10</td><td>45</td><td>950</td><td>30</td><td>950</td><td>1930</td><td><a>编辑</a><a>删除</a></td></tr>
-						 	<tr><td>2013-10-22</td><td>30</td><td>25</td><td>950</td><td>30</td><td>0</td><td>1930</td><td><a>编辑</a><a>删除</a></td></tr>
-						 	<tr><td>2013-11-22</td><td>50</td><td>15</td><td>950</td><td>30</td><td>0</td><td>1930</td><td><a>编辑</a><a>删除</a></td></tr>
-	
-					    </table>
-					    -->
                     </div>
 	        
 	        </td>

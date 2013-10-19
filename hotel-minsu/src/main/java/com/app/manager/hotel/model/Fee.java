@@ -26,6 +26,8 @@ public class Fee extends BaseModel {
 	public String wfee;
 	public String efee;
 	public String nfee;
+	public String contractpaydate;
+	
 	
 	public String evalue;
 	public String wvalue;
@@ -142,6 +144,12 @@ public class Fee extends BaseModel {
 	}
 	public void setWvalue(String wvalue) {
 		this.wvalue = wvalue;
+	}
+	public String getContractpaydate() {
+		return contractpaydate;
+	}
+	public void setContractpaydate(String contractpaydate) {
+		this.contractpaydate = contractpaydate;
 	}
    
 }
