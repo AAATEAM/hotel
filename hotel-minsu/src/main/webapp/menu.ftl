@@ -13,7 +13,7 @@
 		  <li onclick="menu_active(this)"> <a href="hotel_finance_report_month.do" target="mainFrame">退房</a></li>
 		  -->
 		  <li onclick="menu_active(this)"> <a href="report_hotelrpt_fee.do" target="mainFrame">运营报表</a></li>
-	
+	 <li onclick="menu_active(this)">	<a href="hotel_hotel_list_room.do" target="mainFrame">水电清单</a></li>
 		 
 		</ul>
 	</div><!--/.well -->

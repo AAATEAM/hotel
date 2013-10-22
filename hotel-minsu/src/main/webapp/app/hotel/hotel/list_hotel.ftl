@@ -7,21 +7,23 @@
 	<#list treeNodes?sort_by("name") as organize>
 		<tr>
 		    <td>${flag}<b>${organize.name}</b>
-		        <#if organize.getRoles()?size gt 0 > 
-
-		          &nbsp;&nbsp; 
-		          <#--
-                   <@vextp "begindate", organize.id />
-			        ~ 
-			        -->
-			        合同到期<@vextp "enddate", organize.id /> &nbsp; &nbsp;
-			       <#assign day_number=javacall["com.app.manager.hotel.javacall.HotelJavacall"].getHowManyDayToPay(organize.id?string)?number />
-			           <#if day_number gt 25>
-			              <span style="color:red" >  </#if>  
-			              		  距上次缴费： ${day_number}天
-			              </span>
-		        </#if>
-		          
+		        <#if organize.allUser()?size gt 0 > 
+					 &nbsp;&nbsp; 
+			          <#--
+	                   <@vextp "begindate", organize.id />
+				        ~ 
+				        -->
+					   <#if organize.getRoles()?size gt 0 >      
+						        合同到期<@vextp "enddate", organize.id /> &nbsp; &nbsp;
+						       <#assign day_number=javacall["com.app.manager.hotel.javacall.HotelJavacall"].getHowManyDayToPay(organize.id?string)?number />
+						           
+						              <span <#if day_number gt 25> style="color:red" </#if>  >   
+						              		  距上次缴费： ${day_number}天
+						              </span>
+				        </#if>
+				 <#else>
+			
+		         </#if>  
 		    </td>
 		    <td>
 		       <#if organize.getRoles()?size gt 0 > 

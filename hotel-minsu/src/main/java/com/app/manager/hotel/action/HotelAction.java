@@ -32,7 +32,12 @@ public class HotelAction extends BaseEaAction {
 		common_get_extp("Organize");
 		return "success";
 	}
-
+	public String list_room() throws Exception {
+		 list_hotel();
+		 return "success";
+	}
+	
+	
 	public String contract() throws Exception {
 		rhs.put("rolegroupRootList", common_get_tree_root("Rolegroup"));
 		common_load_organize_hotel();
@@ -117,10 +122,7 @@ public class HotelAction extends BaseEaAction {
 			common_fee();
 			return "success";
 		}	
-		
-		
-		
-		public String fee_create() throws Exception {
+		public Fee getFee() throws Exception {
 			Fee  fee=new Fee();
 			fee.setFeedate(TimeUtil.getTimeStr("yyyy-MM-dd"));
 			fee.setFee(getnumberpara("fee"));
@@ -136,6 +138,24 @@ public class HotelAction extends BaseEaAction {
 			fee.setWvalue(getnumberpara("wvalue"));
 			
 			fee.setRemark(java.net.URLDecoder.decode( java.net.URLDecoder.decode(getpara("usernameList")) +":"+getpara("remark"))    );
+			return fee;
+		}	
+		
+		public String print_free() throws Exception {
+			 Fee  fee=getFee();
+			 rhs.put("fee", fee);
+			 rhs.put("organize", infEa.getbaseDao().loadById("Organize", Long.parseLong(getpara("organizeId"))));
+			return "success";
+		}
+		
+		public String print_notify() throws Exception {
+			 Fee  fee=getFee();
+			 rhs.put("fee", fee);
+			 rhs.put("organize", infEa.getbaseDao().loadById("Organize", Long.parseLong(getpara("organizeId"))));
+			return "success";
+		}			
+		public String fee_create() throws Exception {
+			Fee  fee=getFee();
 			fee.setOrganizeId(getpara("organizeId"));
 			baseDao.create(fee);
 			//更新上期读数

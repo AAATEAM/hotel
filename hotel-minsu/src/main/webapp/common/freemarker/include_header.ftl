@@ -25,8 +25,10 @@
 </style>	
 <script type="text/javascript" src="<@context/>common/jquery151/jquery-1.5.1.min.js"></script>
 <script type="text/javascript" src="<@context/>common/jqueryui183/jquery-ui-1.8.13.custom.min.js"></script>
+
 <script type="text/javascript" src="<@context/>common/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="<@context/>common/jquery-plugins/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="<@context/>common/jquery-print/jquery.PrintArea.js"></script>
 <!--
 <link rel="stylesheet" type="text/css" href="<@context/>common/highslide/highslide.css" />
 <script type="text/javascript"          src="<@context/>common/highslide/highslide-with-html.js"></script>
