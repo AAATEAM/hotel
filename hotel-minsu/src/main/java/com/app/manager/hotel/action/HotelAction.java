@@ -34,6 +34,7 @@ public class HotelAction extends BaseEaAction {
 	}
 
 	public String contract() throws Exception {
+		rhs.put("rolegroupRootList", common_get_tree_root("Rolegroup"));
 		common_load_organize_hotel();
 		rhs.put("userList", infEa.getAllUser());
 		return "success";

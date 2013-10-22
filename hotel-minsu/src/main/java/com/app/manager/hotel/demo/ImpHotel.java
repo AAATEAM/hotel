@@ -71,7 +71,7 @@ public class ImpHotel extends ParentDemo implements InfDemo{
 		Systempara sp17 = create_sub_systempara(sp1, "wnumber", "水表读数");
 		Systempara sp13 = create_sub_systempara(sp1, "begindate", "登记日期");
 		Systempara sp14 = create_sub_systempara(sp1, "enddate", "结束日期");
-		Systempara sp15 = create_sub_systempara(sp1, "price", "月租金");
+		Systempara sp15 = create_sub_systempara(sp1, "price", "租金");
 		Systempara sp18 = create_sub_systempara(sp1, "wprice", "水价");
 		Systempara sp19 = create_sub_systempara(sp1, "eprice", "电价");
 		Systempara sp20 = create_sub_systempara(sp1, "nprice", "网费");
