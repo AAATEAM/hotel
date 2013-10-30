@@ -65,6 +65,7 @@ $(function(){
 	
     
     function action_fee(url,para){ 
+       
        $.ajax({
 	         type:"POST",
 	         url: url,
@@ -78,13 +79,14 @@ $(function(){
     }    
 	  //用弹出窗口，牵涉到麻烦的中文字符传送
     function action_print(url,para){ 
-      
+     // alert(url+para);
       $.ajax({
 	         type:"POST",
 	         url: url,
 	         data:para,
 	         cache: false,
 	         success: function(html){
+	            
 	            document.getElementById('print_area').innerHTML=html;
 	       	  	     	
 	         }

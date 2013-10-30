@@ -10,7 +10,9 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Component;
 
-import com.app.manager.ea.action.BaseEaAction;
+import com.app.manager.common.base.action.BaseEaAction;
+
+
 
 @Component("testAction")
 @SuppressWarnings("rawtypes")

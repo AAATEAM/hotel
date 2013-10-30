@@ -10,7 +10,7 @@
   </#list> 
 <script type="text/javascript" src="<@context_module/>hotel.js"></script>
 <script type="text/javascript" >
-    var ecurrentnumber=<@vextp "enumber", rhs["organize"].id />;
+    var ecurrentnumber=<@vextp "enumber", rhs["organize"].id />;  //为了默认当前读数
     var wcurrentnumber=<@vextp "wnumber", rhs["organize"].id />;
     var para="";
     
@@ -22,6 +22,8 @@
              + '&nfee='+document.getElementById('nfee').innerHTML
              + '&enumber='+ecurrentnumber
              + '&wnumber='+wcurrentnumber
+             + '&lenumber='+<@vextp "enumber", rhs["organize"].id />
+             + '&lwnumber='+<@vextp "wnumber", rhs["organize"].id />           
              + '&evalue='+document.getElementById('evalue').innerHTML
              + '&wvalue='+document.getElementById('wvalue').innerHTML
              + '&contractpaydate='+document.getElementById('contractpaydate').value
@@ -75,43 +77,42 @@
 			     	   网费 <@vextp "nprice", rhs["organize"].id />元/月:<input value=" <@vextp "nprice", rhs["organize"].id />" onchange="javascript:document.getElementById('nfee').innerHTML=this.value;sum();" style='WIDTH: 30px' />
 			        	押金 :<input value="0" onchange="javascript:document.getElementById('depositfee').innerHTML=this.value;sum();"  style='WIDTH: 30px' />
 			        <br>备注 :<input id=remark value=""  style='WIDTH: 250px' />
-			   <br>
-			<#list  rhs["system_para_map"]["hotel_fee_reason"]?keys as key>
-                   <input type="checkbox" onclick="javascript:document.getElementById('remark').value=document.getElementById('remark').value+','+this.value" name=businesstype value="${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}" >${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}</input>
-			</#list> 
+			  	    <br>
+					<#list  rhs["system_para_map"]["hotel_fee_reason"]?keys as key>
+		                <input type="checkbox" onclick="javascript:document.getElementById('remark').value=document.getElementById('remark').value+','+this.value" name=businesstype value="${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}" >${rhs["system_para_map"]["hotel_fee_reason"][key]?if_exists}</input>
+					</#list> 
 			        <br><input id=usernameList value="${rhs["organize"].name?if_exists}-${usernameList?if_exists}" type=hidden />
-	             </td>
+			        
+	
+	            </td>
 		        <td valign=top width=50%>
-                                                                     房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp; 
-                     &nbsp;  开始  <@vextp "begindate", rhs["organize"].id />
-			         &nbsp;  结束 <@vextp "enddate", rhs["organize"].id />
+                                                      房号：${rhs["organize"].name?if_exists} &nbsp;	 &nbsp; 
+                    &nbsp;  开始  <@vextp "begindate", rhs["organize"].id />
+			        &nbsp;  结束 <@vextp "enddate", rhs["organize"].id />
 
                     <br>姓名：
 						${usernameList?if_exists}                                                
                         <#---->
-			       <table   class="table  table-condensed">
+			        <table   class="table  table-condensed">
 					 	<tr><td>电费</td><td>水费</td><td>房费</td><td>网费</td><td>押金</td><td>总额</td></tr>
 					 	<tr><td id=efee >0</td><td id=wfee>0</td><td id=hfee><@vextp "price", rhs["organize"].id /></td><td id=nfee><@vextp "nprice", rhs["organize"].id /></td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
 				    </table>
-						
-		    
+					<br>	
+		 		        <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:sum();getpara();action_fee('hotel_hotel_fee_create.do', para); this.disabled=true;document.getElementById('input_enumber').disabled=true;document.getElementById('input_wnumber').disabled=true;document.getElementById('bt_refresh').disabled=false;">
+				          确定 </button>
+			        <button id="bt_refresh" class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:window.location.reload();" disabled=true;>继续缴费</button>
+			 	  
+			       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_free.do', para);">缴费预览</button>
+			       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_notify.do', para);">催缴通知单预览</button>
+			       <button class="btn  btn-mini"  type=button id="print_btn" >打印</button>
+			   
 		        </td>
 	        </tr>
-	       
         </table>
+       <span id="div_action_result" style="display:none"> ${rhs["info"]?if_exists}</span>
+    	<div id="print_area" style="background-color: #F6F7FB;border:1px solid #c3d9ff;font-size:14px;margin:0px;padding:0px"></div>	
+        <br><br><br><br> <br><br><br><br><br><br>
           
-
-		    <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:sum();getpara();action_fee('hotel_hotel_fee_create.do', para); this.disabled=true;document.getElementById('input_enumber').disabled=true;document.getElementById('input_wnumber').disabled=true;document.getElementById('bt_refresh').disabled=false;">
-		          确定 </button>
-	        <button id="bt_refresh" class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:window.location.reload();" disabled=true;>继续缴费</button>
-	 	  
-	       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print.do', para);">缴费预览</button>
-	       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print.do', para);">催缴通知单预览</button>
-	       <button class="btn  btn-mini"  type=button id="print_btn" >打印</button>
-	
-            <span id="div_action_result" style="display:none"> ${rhs["info"]?if_exists}</span>
-    	  
-    	   <div id="print_area" style="background-color: #F6F7FB;border:1px solid #c3d9ff;width:250px"></div>	
-        <br><br><br><br>
+        
 
 		   		

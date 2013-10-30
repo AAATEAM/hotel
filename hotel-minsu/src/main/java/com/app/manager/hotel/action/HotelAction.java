@@ -8,7 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.app.manager.ea.action.BaseEaAction;
+
+import com.app.manager.common.base.action.BaseEaAction;
 import com.app.manager.ea.model.Organize;
 import com.app.manager.ea.model.Role;
 import com.app.manager.ea.model.User;
@@ -132,6 +133,10 @@ public class HotelAction extends BaseEaAction {
 			fee.setDepositfee(getnumberpara("depositfee"));
 			fee.setEnumber(getnumberpara("enumber"));
 			fee.setWnumber(getnumberpara("wnumber"));
+			
+			fee.setLenumber(getnumberpara("lenumber"));
+			fee.setLwnumber(getnumberpara("lwnumber"));
+			
 			fee.setContractpaydate(getpara("contractpaydate"));			
 			fee.setEvalue(getnumberpara("evalue"));
 			fee.setWvalue(getnumberpara("wvalue"));
@@ -148,9 +153,7 @@ public class HotelAction extends BaseEaAction {
 		}
 		
 		public String print_notify() throws Exception {
-			 Fee  fee=getFee();
-			 rhs.put("fee", fee);
-			 rhs.put("organize", infEa.getbaseDao().loadById("Organize", Long.parseLong(getpara("organizeId"))));
+			print_free();
 			return "success";
 		}			
 		public String fee_create() throws Exception {

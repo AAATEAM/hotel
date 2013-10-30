@@ -18,8 +18,13 @@ public class Fee extends BaseModel {
 	private String organizeId;
 	public String operationname;
 	public String feedate;	
+	
 	public String enumber;
 	public String wnumber;
+	
+	public String lenumber;
+	public String lwnumber;	
+	
 	public String begindate;	
 	public String enddate;
 	public String hfee;
@@ -150,6 +155,18 @@ public class Fee extends BaseModel {
 	}
 	public void setContractpaydate(String contractpaydate) {
 		this.contractpaydate = contractpaydate;
+	}
+	public String getLenumber() {
+		return lenumber;
+	}
+	public void setLenumber(String lenumber) {
+		this.lenumber = lenumber;
+	}
+	public String getLwnumber() {
+		return lwnumber;
+	}
+	public void setLwnumber(String lwnumber) {
+		this.lwnumber = lwnumber;
 	}
    
 }
