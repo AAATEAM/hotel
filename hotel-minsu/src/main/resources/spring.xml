@@ -23,7 +23,7 @@
 	
     <!--基础服务接口部分 -->
 	<bean id="impEa"
-		class="com.app.manager.ea.api.ImpEa">
+		class="com.app.ea.api.ImpEa">
 		<property name="infDemo">
 			<ref bean="impHotel" />
 		</property>

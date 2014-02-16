@@ -1,0 +1,14 @@
+<br>备注 <input type="text"   onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=remark&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].remark?if_exists}</#if>' />
+<br>房额 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=hfee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].hfee?if_exists}</#if>' />
+<br>押金 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=depositfee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].depositfee?if_exists}</#if>' />
+
+<br>合同日期<input type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=contractpaydate&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"   value='<#if rhs["fee"]?exists>${rhs["fee"].contractpaydate?if_exists}</#if>' />
+
+<br>电费 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=efee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].efee?if_exists}</#if>' />
+<br>水费 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=wfee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].wfee?if_exists}</#if>' />
+<br>网费 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=nfee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].nfee?if_exists}</#if>' />
+
+<br>金额 <input type="text" onchange="javascript:action_fee('hotel_hotel_fee_update.do','beanname=Fee&userid=${rhs["user"].id?if_exists}&organizeId=${rhs["organize"].id?if_exists}&column=fee&id=${rhs["fee"].id?if_exists}&columnValue='+escape(encodeURIComponent(this.value)))"  value='<#if rhs["fee"]?exists>${rhs["fee"].fee?if_exists}</#if>' />
+
+	
+			

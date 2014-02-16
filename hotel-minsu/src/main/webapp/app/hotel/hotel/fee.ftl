@@ -9,6 +9,7 @@
 		</#list>
   </#list> 
 <script type="text/javascript" src="<@context_module/>hotel.js"></script>
+
 <script type="text/javascript" >
     var ecurrentnumber=<@vextp "enumber", rhs["organize"].id />;  //为了默认当前读数
     var wcurrentnumber=<@vextp "wnumber", rhs["organize"].id />;
@@ -63,7 +64,7 @@
    
 	    <table width=100%>
 	        <tr><td colspan=2>
-       			 历史缴费清单<div id=div_fee_table><#include "include_list_fee.ftl"> </div>
+       			 <div id=div_fee_table><#include "include_list_fee.ftl"> </div>
  	        
 	        <hr>
 	        </td></tr>
@@ -98,13 +99,13 @@
 					 	<tr><td id=efee >0</td><td id=wfee>0</td><td id=hfee><@vextp "price", rhs["organize"].id /></td><td id=nfee><@vextp "nprice", rhs["organize"].id /></td><td id=depositfee>0</td><td id=sum_fee>0</td></tr>
 				    </table>
 					<br>	
-		 		        <button class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:sum();getpara();action_fee('hotel_hotel_fee_create.do', para); this.disabled=true;document.getElementById('input_enumber').disabled=true;document.getElementById('input_wnumber').disabled=true;document.getElementById('bt_refresh').disabled=false;">
+		 		        <button class="btn btn-primary btn-xs" type=button value=确定缴费  onclick="javascript:sum();getpara();action_fee('hotel_hotel_fee_create.do', para); this.disabled=true;document.getElementById('input_enumber').disabled=true;document.getElementById('input_wnumber').disabled=true;document.getElementById('bt_refresh').disabled=false;">
 				          确定 </button>
-			        <button id="bt_refresh" class="btn  btn-mini" type=button value=确定缴费  onclick="javascript:window.location.reload();" disabled=true;>继续缴费</button>
+			        <button id="bt_refresh" class="btn btn-primary btn-xs" type=button value=确定缴费  onclick="javascript:window.location.reload();" disabled=true;>继续缴费</button>
 			 	  
-			       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_free.do', para);">缴费预览</button>
-			       <button class="btn  btn-mini"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_notify.do', para);">催缴通知单预览</button>
-			       <button class="btn  btn-mini"  type=button id="print_btn" >打印</button>
+			       <button class="btn btn-primary btn-xs"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_free.do', para);">缴费预览</button>
+			       <button class="btn btn-primary btn-xs"  type=button   onclick="javascript:getpara();action_print('hotel_hotel_print_notify.do', para);">催缴通知单预览</button>
+			       <button class="btn btn-primary btn-xs"  type=button id="print_btn" >打印</button>
 			   
 		        </td>
 	        </tr>
